@@ -1,0 +1,17 @@
+import requests
+
+def send_sms(number):
+    url = f"http://yousuf323215.serv00.net/api/sms2.php?number={number}"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            print(f"SMS sent to {number}: {response.text}")
+        else:
+            print(f"Failed to send SMS to {number}: {response.status_code}")
+    except Exception as e:
+        print(f"Error occurred: {e}")
+
+number = input('enter your number: ')
+
+while True:
+    send_sms(number)
